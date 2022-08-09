@@ -2,14 +2,40 @@
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #F4EBD0;
+  align-items: flex-start;
+  background-color: #222;
+  color: white;
 }
 
-.desc {
-  font-size: 24px;
-  color: #122620;
-  width: 70%;
+.button {
+  height: 30px;
+  margin-left: 10px;
+  background-color: #B68D40;
+  color: white;
+  font-size: large;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.container1 {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: #222;
+  color: white;
+}
+
+.container2 {
+  padding: 20px 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #222;
+  color: white;
 }
 
 .wrapper {
@@ -25,8 +51,4 @@
     text-align: center;
   }
 
-  .desc {
-    width: 90%;
-    text-align: center;
-  }
 }

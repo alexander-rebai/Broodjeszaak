@@ -8,6 +8,11 @@
   flex: 2;
 }
 
+.total {
+  margin-right: 20px;
+  flex-direction: space-around;
+}
+
 .table {
   width: 100%;
   text-align: left;
@@ -61,7 +66,7 @@
 .wrapper {
   width: 90%;
   max-height: 300px;
-  background-color: #122620;
+  background-color: #222;
   color: white;
   padding: 10px 50px 50px 50px;
   display: flex;
@@ -75,7 +80,7 @@
 
 .button {
   background-color: #D6AD60;
-  color: #122620;
+  color: #222;
   height: 30px;
   font-weight: bold;
   margin-top: 20px;

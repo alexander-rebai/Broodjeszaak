@@ -11,18 +11,31 @@ const OrderSchema = new mongoose.Schema({
         required: true,
         maxLength: 200
     },
+    phone: {
+        type: String,
+        required: false,
+        maxLength: 200
+    },
     total: {
         type: Number,
         required: true
     },
-    status: {
-        type: Number,
-        default: 0,
+    products: {
+        type: [String],
         required: true
+    },
+    saladItems : {
+        type: [String],
+        required: false
     },
     paymentMethod: {
         type: Number,
         required: true
+    },
+    afgewerkt: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 }, { timestamps: true });
 

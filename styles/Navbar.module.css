@@ -1,7 +1,7 @@
 .container {
   height: 100px;
   padding: 0px 50px;
-  background-color: #122620;
+  background-color: #222;  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,14 +14,7 @@
   flex: 1;
   display: flex;
   align-items: center;
-}
-
-.item:nth-child(2) {
-  flex: 3;
-}
-
-.item:last-child {
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .callButton {
@@ -58,10 +51,12 @@
 .listItem {
   margin: 20px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .cart{
     position: relative;
+    cursor: pointer;
 }
 
 .counter{
@@ -77,7 +72,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: #122620;
+    color: #222;
 }
 
 @media screen and (max-width:480px) {

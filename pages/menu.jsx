@@ -1,0 +1,42 @@
+import React from 'react'
+import axios from 'axios'
+import BroodjesList from '../components/broodjes/BroodjesList'
+import PaniniList from '../components/paninis/PaniniList'
+import SnackList from '../components/snacks/SnackList'
+import ZoetigheidList from '../components/zoetigheden/ZoetigheidList'
+import styles from "../styles/Menu.module.css";
+import Saladbar from '../components/Saladbar'
+
+const menu = ({ broodjesList, zoetigheidList, snackList, paniniList}) => {
+  return (
+    <div className={styles.container}>
+      <h2>Broodjes</h2>
+      <BroodjesList broodjesList={broodjesList} />
+      <h2>Paninis</h2>
+      <PaniniList paniniList={paniniList}/>
+      <h2>Snacks</h2>
+      <SnackList snackList={snackList} />
+      <h2>Zoetigheden</h2>
+      <ZoetigheidList zoetigheidList={zoetigheidList} />
+      <h2>Salade Bar</h2>
+      <Saladbar/>
+    </div>
+  )
+}
+
+export const getServerSideProps = async () => {
+  const res1 = await axios.get("http://localhost:3000/api/broodjes");
+  const res2 = await axios.get("http://localhost:3000/api/zoetigheden");
+  const res3 = await axios.get("http://localhost:3000/api/snacks");
+  const res4 = await axios.get("http://localhost:3000/api/paninis");
+  return {
+    props: {
+      broodjesList: res1.data,
+      zoetigheidList: res2.data,
+      snackList: res3.data,
+      paniniList: res4.data
+    }
+  }
+}
+
+export default menu

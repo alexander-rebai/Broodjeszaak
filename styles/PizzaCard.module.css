@@ -6,24 +6,46 @@
   align-items: center;
   justify-content: center;
   padding: 20px 40px;
-  cursor: pointer;
+  border: 1px solid #B68D40;
 }
 
 .title {
   font-size: 18px;
   font-weight: bold;
-  color: #B68D40;
+  color: lightgray;  
 }
 
 .price {
   font-size: 18px;
-  font-weight: bold;
-  color: #B68D40;
+  font-weight: medium;
+  color: white;
 }
 
 .desc {
   text-align: center;
   color: #B68D40;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.quantity {
+  width: 50px;
+  height: 30px;
+}
+
+.button {
+  height: 30px;
+  margin-left: 10px;
+  background-color: #B68D40;
+  color: lightgray;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {

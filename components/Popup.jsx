@@ -10,30 +10,34 @@ const Popup = (props) => {
                 <p>Order id: {props.order._id}</p>
                 <p>Adres: {props.order.address}</p>
                 <p>TelefoonNr: {props.order.phone}</p>
-                <p>Prijs: ${(props.order.total).toFixed(2)}</p>
+                <p>Prijs: €{(props.order.total).toFixed(2)}</p>
                 <p>Aantal producten: {props.order.products.length}</p>
-                <p>{props.order.products.filter((p) => p !== "Salad").map((p) => {
+                <p>{props.order.products.filter((p) => p !== "Salad").map((p, i) => {
                     return (
                         <>
-                            <h3>-{p}</h3>
+                            <h3 key={i}>-{p}</h3>
                             <br />
                         </>
                     )
                 })}</p>
                 {props.order.products.includes("Salad") &&
                     (
-                        <>
-                            <h3>Salade:</h3>
-                            <p>{
-                                props.order.products.filter((p) => p === "Salad").map((p) => {
-                                    return (
-                                        <>
-                                            <h3>{props.order.saladItems.map((i) => i + ", ")}</h3>
-                                        </>
-                                    )
-                                })
-                            }</p>
-                        </>
+                        <div>{
+                            props.order.products.filter((p) => p === "Salad").map((p, i) => {
+                                return (
+                                    <>
+                                        <h3>Salade:</h3>
+                                        <h3>{props.order.saladItems[i].map((i, ind) => {
+                                            if (ind === props.order.saladItems.length - 1) {
+                                                return <span key={ind}>{i}</span>
+                                            } else {
+                                                return <span key={ind}>{i} - </span>
+                                            }
+                                        })}</h3>
+                                    </>
+                                )
+                            })
+                        }</div>
                     )
                 }
             </div>

@@ -22,14 +22,13 @@ const Cart = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const saladItems = cart.saladItems[0]?.map((item) => item);
-  console.log(saladItems)
+  const saladItems = cart.saladItems?.map((item) => item);
 
-  const items = cart.products.map((p) => {
+  const items = cart.products.map((p, i) => {
     if (p.title === "Salad") {
       return p.title
     }
-    return p.title;
+    return cart.quantities[i] + "x" + cart.types[i] + ": "+ p.title;
   })
 
   const createOrder = async (data) => {
@@ -124,14 +123,14 @@ const Cart = () => {
                     <span className={styles.name}>{product.title}</span>
                   </td>
                   <td>
-                    <span className={styles.price}>${product.price}</span>
+                    <span className={styles.price}>€{product.price}</span>
                   </td>
                   <td>
                     <span className={styles.quantity}>{product.quantity}</span>
                   </td>
                   <td>
                     <span className={styles.total}>
-                      ${(product.price * product.quantity).toFixed(2)}
+                      €{(product.price * product.quantity).toFixed(2)}
                     </span>
                   </td>
                 </tr>
@@ -144,7 +143,7 @@ const Cart = () => {
         <div className={styles.wrapper}>
           <h2 className={styles.title}>CART TOTAL</h2>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Total:</b>${(cart.total).toFixed(2)}
+            <b className={styles.totalTextTitle}>Total:</b>€{(cart.total).toFixed(2)}
           </div>
           {open ? (
             <div className={styles.paymentMethods}>

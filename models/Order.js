@@ -25,7 +25,7 @@ const OrderSchema = new mongoose.Schema({
         required: true
     },
     saladItems : {
-        type: [String],
+        type: [[String]],
         required: false
     },
     paymentMethod: {

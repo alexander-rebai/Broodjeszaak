@@ -11,7 +11,7 @@ const SnackSchema = new mongoose.Schema({
         required: true
     },
     keuzeOpties: {
-        type: [{ keuze: { type: String, required: true }}],
+        type: [String],
         required: false
     }
 }, { timestamps: true });

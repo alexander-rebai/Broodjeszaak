@@ -4,6 +4,8 @@ const cartSlice = createSlice({
     name: "cart",
     initialState: {
         products: [],
+        types: [],
+        quantities: [],
         quantity: 0,
         total: 0,
         saladItems: [],
@@ -13,6 +15,8 @@ const cartSlice = createSlice({
             state.products.push(action.payload);
             state.quantity += 1;  
             state.total += action.payload.price * action.payload.quantity;
+            state.quantities[state.products.indexOf(action.payload)] = parseInt(action.payload.quantity);
+            state.types[state.products.indexOf(action.payload)] = action.payload.type;
         },
         addSalad: (state, action) => {
             state.products.push(action.payload);

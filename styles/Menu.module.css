@@ -2,3 +2,9 @@
     padding: 50px;
     background-color: #F4EBD0;
 }
+
+.type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

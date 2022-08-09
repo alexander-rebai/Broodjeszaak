@@ -10,15 +10,15 @@ import Saladbar from '../components/Saladbar'
 const menu = ({ broodjesList, zoetigheidList, snackList, paniniList}) => {
   return (
     <div className={styles.container}>
-      <h2>Broodjes</h2>
+      <h1 className={styles.type}>Broodjes</h1>
       <BroodjesList broodjesList={broodjesList} />
-      <h2>Paninis</h2>
+      <h1 className={styles.type}>Paninis</h1>
       <PaniniList paniniList={paniniList}/>
-      <h2>Snacks</h2>
+      <h1 className={styles.type}>Snacks</h1>
       <SnackList snackList={snackList} />
-      <h2>Zoetigheden</h2>
+      <h1 className={styles.type}>Zoetigheden</h1>
       <ZoetigheidList zoetigheidList={zoetigheidList} />
-      <h2>Salade Bar</h2>
+      <h1 className={styles.type}>Salade Bar</h1>
       <Saladbar/>
     </div>
   )

@@ -30,15 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/administratie_velje": [
+    "/cart": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/administratie_velje.js"
+      "static/chunks/pages/cart.js"
     ],
-    "/orders/[id]": [
+    "/menu": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/orders/[id].js"
+      "static/chunks/pages/menu.js"
     ]
   },
   "ampFirstPages": []

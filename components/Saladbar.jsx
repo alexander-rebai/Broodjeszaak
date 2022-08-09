@@ -8,7 +8,7 @@ const Saladbar = () => {
 
     const basis = ["gemengde sla", "rucola", "ijsbergsla", "pasta", "rijst", "couscous", "quinoa", "aardappel"];
     const groente = ["cherrytomaat", "bloemkool", "paprika", "mais", "wortel", "komkommer", "tomaat", "tuinkers", "perzik"];
-    const proteine = ["feta", "kipfilet", "tonijn", "tofu", "hesp", "tonijnsla (+ $1)", "krabsla", "geitenkaas", "mozarella", "gerookte zalm (+ $3)"];
+    const proteine = ["feta", "kipfilet", "tonijn", "tofu", "hesp", "tonijnsla (+ €1)", "krabsla", "geitenkaas", "mozarella", "gerookte zalm (+ €3)"];
     const afwerking = ["notenmix", "parmezaanse kaas", "rozijnen", "peterselie", "gedroogde ui", "olijven", "verse ui", "zongedroogde tomaat"];
     const dressing = ["mayonaise", "cocktail", "yoghurtdressing", "bieslookvinaigrette", "olijfolie", "honing-mosterd vinaigrette"];
 
@@ -32,14 +32,19 @@ const Saladbar = () => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(addSalad({ ...salad}));
+        if (!basisList.length || !groenteList.length || !proteineList.length || !afwerkingList.length || !dressingList.length) {
+            alert("Je moet minstens 1 ingredient in elke categorie selecteren");
+        } else {
+            dispatch(addSalad({ ...salad }));
+            setShowSalad(false);
+        }
     }
 
     const calculatePrice = () => {
         let price = 9;
-        if (proteineList.includes("gerookte zalm (+ $3)")) {
+        if (proteineList.includes("gerookte zalm (+ €3)")) {
             price += 3;
-        } else if (proteineList.includes("tonijnsla (+ $1)")) {
+        } else if (proteineList.includes("tonijnsla (+ €1)")) {
             price += 1;
         }
         setSalad({
@@ -127,73 +132,92 @@ const Saladbar = () => {
 
 
     return (
-        <div className={styles.container1}>
-            <div className={styles.container}>
-                <h3>Basis (max.2)</h3>
-                {basis.map((item, i) => (
-                    <div className={styles.option} key={item}>
-                        <input
-                            type="checkbox"
-                            id={item}
-                            name={item}
-                            className={styles.checkbox}
-                            onChange={(e) => handleChangeBasis(e, item)}
-                        />
-                        <label htmlFor="double">{item}</label>
+        <>
+            <div className={styles.container1}>
+                <div className={styles.wrapper}>
+                    <div className={styles.container2}>
+                        <h3>Basis (max.2)</h3>
+                        {basis.map((item, i) => (
+                            <div className={styles.option} key={item}>
+                                <input
+                                    type="checkbox"
+                                    id={item}
+                                    name={item}
+                                    className={styles.checkbox}
+                                    onChange={(e) => handleChangeBasis(e, item)}
+                                />
+                                <label htmlFor="double">{item}</label>
+                            </div>
+                        ))}
                     </div>
-                ))}
-                <h3>Groente (max. 4)</h3>
-                {groente.map((item, i) => (
-                    <div className={styles.option} key={item}>
-                        <input
-                            type="checkbox"
-                            id={item}
-                            name={item}
-                            className={styles.checkbox}
-                            onChange={(e) => handleChangeGroente(e, item)}
-                        />
-                        <label htmlFor="double">{item}</label>
+                </div>
+                <div className={styles.wrapper}>
+                    <div className={styles.container2}>
+                        <h3>Groente (max. 4)</h3>
+                        {groente.map((item, i) => (
+                            <div className={styles.option} key={item}>
+                                <input
+                                    type="checkbox"
+                                    id={item}
+                                    name={item}
+                                    className={styles.checkbox}
+                                    onChange={(e) => handleChangeGroente(e, item)}
+                                />
+                                <label htmlFor="double">{item}</label>
+                            </div>
+                        ))}</div>
+                </div>
+                <div className={styles.wrapper}>
+                    <div className={styles.container2}>
+                        <h3>Proteïne (max. 1)</h3>
+                        {proteine.map((item, i) => (
+                            <div className={styles.option} key={item}>
+                                <input
+                                    type="checkbox"
+                                    id={item}
+                                    name={item}
+                                    className={styles.checkbox}
+                                    onChange={(e) => handleChangeProt(e, item)}
+                                />
+                                <label htmlFor="double">{item}</label>
+                            </div>
+                        ))}
                     </div>
-                ))}
-                <h3>Proteïne (max. 1)</h3>
-                {proteine.map((item, i) => (
-                    <div className={styles.option} key={item}>
-                        <input
-                            type="checkbox"
-                            id={item}
-                            name={item}
-                            className={styles.checkbox}
-                            onChange={(e) => handleChangeProt(e, item)}
-                        />
-                        <label htmlFor="double">{item}</label>
+                </div>
+                <div className={styles.wrapper}>
+                    <div className={styles.container2}>
+                        <h3>Afwerking (max. 3)</h3>
+                        {afwerking.map((item, i) => (
+                            <div className={styles.option} key={item}>
+                                <input
+                                    type="checkbox"
+                                    id={item}
+                                    name={item}
+                                    className={styles.checkbox}
+                                    onChange={(e) => handleChangeAfwerking(e, item)}
+                                />
+                                <label htmlFor="double">{item}</label>
+                            </div>
+                        ))}
                     </div>
-                ))}
-                <h3>Afwerking (max. 3)</h3>
-                {afwerking.map((item, i) => (
-                    <div className={styles.option} key={item}>
-                        <input
-                            type="checkbox"
-                            id={item}
-                            name={item}
-                            className={styles.checkbox}
-                            onChange={(e) => handleChangeAfwerking(e, item)}
-                        />
-                        <label htmlFor="double">{item}</label>
+                </div>
+                <div className={styles.wrapper}>
+                    <div className={styles.container2}>
+                        <h3>Dressing (max.1)</h3>
+                        {dressing.map((item, i) => (
+                            <div className={styles.option} key={item}>
+                                <input
+                                    type="checkbox"
+                                    id={item}
+                                    name={item}
+                                    className={styles.checkbox}
+                                    onChange={(e) => handleChangeDressing(e, item)}
+                                />
+                                <label htmlFor="double">{item}</label>
+                            </div>
+                        ))}
                     </div>
-                ))}
-                <h3>Dressing (max.1)</h3>
-                {dressing.map((item, i) => (
-                    <div className={styles.option} key={item}>
-                        <input
-                            type="checkbox"
-                            id={item}
-                            name={item}
-                            className={styles.checkbox}
-                            onChange={(e) => handleChangeDressing(e, item)}
-                        />
-                        <label htmlFor="double">{item}</label>
-                    </div>
-                ))}
+                </div>
             </div>
             <div className={styles.container2}>
                 {!showSalad &&
@@ -214,15 +238,17 @@ const Saladbar = () => {
                         </ul>
                         <h3>Totaal Prijs:</h3>
                         <p>
-                            ${salad.price}
+                            €{salad.price}
                         </p>
                         <div className={styles.buttons}>
-                            <button className={styles.button} onClick={handleClick}>Toevoegen</button>
+                            <button className={styles.button} onClick={
+                                handleClick
+                            }>Toevoegen</button>
                         </div>
                     </>
                 }
             </div>
-        </div>
+        </>
 
     )
 }

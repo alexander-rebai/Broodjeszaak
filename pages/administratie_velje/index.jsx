@@ -29,7 +29,7 @@ const index = ({ orders, products }) => {
     return (
         <div className={styles.container}>
             <div className={styles.item} id="borderclass">
-                <h1 className={styles.title}>Orders</h1>
+                <h1 className={styles.title}> Bestellingen</h1>
                 <table className={styles.table}>
                     <tbody>
                         <tr className={styles.trTitle}>
@@ -50,7 +50,7 @@ const index = ({ orders, products }) => {
                                     <td>{order.customer}</td>
                                     <td>{order.address}</td>
                                     <td>{order.phone}</td>
-                                    <td>${order.total}</td>
+                                    <td>€{(order.total).toFixed(2)}</td>
                                     <td>
                                         {order.paymentMethod === 0 ? <span>cash</span> : <span>paid</span>}
                                     </td>
@@ -71,7 +71,7 @@ const index = ({ orders, products }) => {
                 <h3>test</h3>
             </Popup>
             <div className={styles.item}>
-                <h1 className={styles.title}>Afwerkte Orders</h1>
+                <h1 className={styles.title}>Afwerkte Bestellingen van Vandaag</h1>
                 <table className={styles.table}>
                     <tbody>
                         <tr className={styles.trTitle}>

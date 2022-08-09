@@ -30,12 +30,16 @@ const Order = ({ order }) => {
                   <span className={styles.total}>{order.address}</span>
                 </td>
                 <td>
-                  <span className={styles.total}>${(order.total).toFixed(2)}</span>
+                  <span className={styles.total}>€{(order.total).toFixed(2)}</span>
                 </td>
                 <td>
                   <span className={styles.total}>{order.products.map((p, i) => {
                     i = i + 1
-                    return i + ": " + p + ", "
+                    if (i === order.products.length) {
+                      return i + ": " + p
+                    } else {
+                      return i + ": " + p + ", "
+                    }
                   })}
                   </span>
                 </td>
@@ -48,7 +52,7 @@ const Order = ({ order }) => {
         <div className={styles.wrapper}>
           <h2 className={styles.title}>CART TOTAL</h2>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Total:</b>${(order.total).toFixed(2)}
+            <b className={styles.totalTextTitle}>Total:</b>€{(order.total).toFixed(2)}
           </div>
           <button disabled className={styles.button}>
             {order.paymentMethod === 0 ? "Betalen met Cash bij levering." : "Reeds betaald."}

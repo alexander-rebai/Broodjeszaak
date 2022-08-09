@@ -35,7 +35,7 @@ const Order = ({ order }) => {
                 <td>
                   <div className={styles.total}>
                     {order.products.map((p, i) => {
-                      return <span className={styles.total}>{p} </span>
+                      return <span key={i} className={styles.total}>{p} </span>
                     })}
                   </div>
                 </td>

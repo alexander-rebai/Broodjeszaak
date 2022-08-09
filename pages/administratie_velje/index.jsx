@@ -1,10 +1,9 @@
 import styles from "../../styles/Admin.module.css"
 import axios from "axios"
 import { useState } from "react";
-import Link from "next/link";
 import Popup from "../../components/Popup";
 
-const index = ({ orders, products }) => {
+const Index = ({ orders }) => {
     const [orderList, setOrderList] = useState(orders);
     const [popup, setPopup] = useState(false);
     const [currentOrder, setCurrentOrder] = useState({});
@@ -114,4 +113,4 @@ export const getServerSideProps = async () => {
     };
 };
 
-export default index
+export default Index

@@ -35,7 +35,7 @@ const Cart = () => {
     if(cart.total < 15){
       setAmount(cart.total + 3);
     }
-  } ,[cart.products]);
+  } ,[cart.products, cart.total]);
 
   const createOrder = async (data) => {
     try {

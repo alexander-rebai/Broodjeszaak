@@ -33,13 +33,13 @@ const index = ({ orders, products }) => {
                 <table className={styles.table}>
                     <tbody>
                         <tr className={styles.trTitle}>
-                            <th>Id</th>
-                            <th>Customer</th>
+                            <th>ID</th>
+                            <th>Klant</th>
                             <th>Adres</th>
                             <th>Telefoon</th>
-                            <th>Total</th>
-                            <th>Payment</th>
-                            <th>Action</th>
+                            <th>Totaal</th>
+                            <th>Betaling</th>
+                            <th>Acties</th>
                         </tr>
                     </tbody>
                     {orderList?.map((order) => (
@@ -75,10 +75,10 @@ const index = ({ orders, products }) => {
                 <table className={styles.table}>
                     <tbody>
                         <tr className={styles.trTitle}>
-                            <th>Id</th>
-                            <th>Customer</th>
-                            <th>Payment</th>
-                            <th>Action</th>
+                            <th>Bestelling ID</th>
+                            <th>Klant</th>
+                            <th>Betaling</th>
+                            <th>Acties</th>
                         </tr>
                     </tbody>
                     {orderList?.map((order) => (

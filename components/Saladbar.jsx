@@ -219,7 +219,7 @@ const Saladbar = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.container2}>
+            <div className={styles.container3}>
                 {!showSalad &&
                     <button className={styles.button} onClick={() => {
                         calculatePrice()

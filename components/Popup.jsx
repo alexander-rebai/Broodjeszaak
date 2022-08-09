@@ -5,7 +5,6 @@ const Popup = (props) => {
     return (props.trigger) ? (
         <div className={styles.popup}>
             <div className={styles.innerPopup}>
-                <button className={styles.button} onClick={() => props.setTrigger(false)}>close</button>
                 <p>Klant: {props.order.customer}</p>
                 <p>Order id: {props.order._id}</p>
                 <p>Adres: {props.order.address}</p>
@@ -40,6 +39,7 @@ const Popup = (props) => {
                         }</div>
                     )
                 }
+                <button className={styles.button} onClick={() => props.setTrigger(false)}>close</button>
             </div>
         </div>
     ) : "";

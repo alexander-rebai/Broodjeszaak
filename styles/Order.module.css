@@ -10,7 +10,9 @@
 
 .total {
   margin-right: 20px;
-  flex-direction: space-around;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .table {

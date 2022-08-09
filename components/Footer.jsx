@@ -5,46 +5,51 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.item}>
-        <Image src="/img/bg.png" objectFit="cover" layout="fill" alt="" />
-      </div>
-      <div className={styles.item}>
         <div className={styles.card}>
-          <h2 className={styles.motto}>
-            OH YES, WE DID.THE LAMA PIZZA, WELL BAKED SLICE OF PIZZA.
-          </h2>
+          <h3 className={styles.motto}>
+            Bij Broodjes- & Saladebar Velje kan je terecht voor heerlijke broodjes, salades en snacks. Onze klanten zijn voor ons het allerbelangrijkste, en daarom maken wij al onze producten met een extra portie liefde. Kom naar onze winkel, of bestel nu online.
+          </h3>
         </div>
         <div className={styles.card}>
-          <h1 className={styles.title}>FIND OUR RESTAURANTS</h1>
+          <h1 className={styles.title}>ONZE LOCATIE</h1>
           <p className={styles.text}>
-            1654 R. Don Road #304.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1010
-          </p>
-          <p className={styles.text}>
-            2356 K. Laquie Rd #235.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1011
-          </p>
-          <p className={styles.text}>
-            1614 E. Erwin St #104.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1012
-          </p>
-          <p className={styles.text}>
-            1614 W. Caroll St #125.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1013
+            Gentsesteenweg 334
+            <br /> Erondegem
+            <br /> 053 / 41 88 51
+            <br /> 0495 / 43 44 58
+            <br /> Bestellingen.velje@outlouk.be
           </p>
         </div>
         <div className={styles.card}>
-          <h1 className={styles.title}>WORKING HOURS</h1>
+          <h1 className={styles.title}>OPENINGSUREN</h1>
           <p className={styles.text}>
-            MONDAY UNTIL FRIDAY
-            <br /> 9:00 – 22:00
+            DINSDAG TOT VRIJDAG
+            <br /> 08:00 – 14:30
           </p>
           <p className={styles.text}>
-            SATURDAY - SUNDAY
-            <br /> 12:00 – 24:00
+            ZATERDAG
+            <br /> 9:00 – 14:00
+          </p>
+        </div>
+        <div className={styles.card}>
+          <h1 className={styles.title}>LEVERING</h1>
+          <p className={styles.text}>
+            GRATIS LEVERING VANAF €15
+          </p>
+          <p className={styles.text}>
+            VOOR 10U BESTELD = VOOR 12U GELEVERD
+          </p>
+          <p className={styles.text}>
+            LEVERING GEBEURT TUSSEN
+            <br /> 12:00 – 13:00
+          </p>
+        </div>
+        <div className={styles.card}>
+          <h1 className={styles.title}>WEBSITE</h1>
+          <p className={styles.text}>
+            Gemaakt door Alexander Rebai
+            <br />
+            rebaialexander@hotmail.com
           </p>
         </div>
       </div>

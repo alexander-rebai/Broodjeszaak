@@ -11,10 +11,10 @@ const Order = ({ order }) => {
           <table className={styles.table}>
             <thead>
               <tr className={styles.trTitle}>
-                <th>Order ID</th>
-                <th>Customer</th>
-                <th>Address</th>
-                <th>Total</th>
+                <th>Bestellings ID</th>
+                <th>Klant</th>
+                <th>Adres</th>
+                <th>Totaal</th>
                 <th>Bestelling</th>
               </tr>
             </thead>
@@ -33,15 +33,11 @@ const Order = ({ order }) => {
                   <span className={styles.total}>€{(order.total).toFixed(2)}</span>
                 </td>
                 <td>
-                  <span className={styles.total}>{order.products.map((p, i) => {
-                    i = i + 1
-                    if (i === order.products.length) {
-                      return i + ": " + p
-                    } else {
-                      return i + ": " + p + ", "
-                    }
-                  })}
-                  </span>
+                  <div className={styles.total}>
+                    {order.products.map((p, i) => {
+                      return <span className={styles.total}>{p} </span>
+                    })}
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -50,9 +46,9 @@ const Order = ({ order }) => {
       </div>
       <div className={styles.right}>
         <div className={styles.wrapper}>
-          <h2 className={styles.title}>CART TOTAL</h2>
+          <h2 className={styles.title}>Winkelmandje</h2>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Total:</b>€{(order.total).toFixed(2)}
+            <b className={styles.totalTextTitle}>Totaal:</b>€{(order.total).toFixed(2)}
           </div>
           <button disabled className={styles.button}>
             {order.paymentMethod === 0 ? "Betalen met Cash bij levering." : "Reeds betaald."}

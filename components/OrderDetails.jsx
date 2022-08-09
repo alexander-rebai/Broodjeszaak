@@ -14,17 +14,17 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
-                <div className={styles.title}>You have to pay ${(total).toFixed(2)} after delivery.</div>
+                <div className={styles.title}>Het te betalen bedrag bedraagt €{(total).toFixed(2)} na levering.</div>
                 <div className={styles.item}>
-                    <label className={styles.label}>Name Surname</label>
+                    <label className={styles.label}>Naam</label>
                     <input
-                        placeholder="Jason Derulo"
+                        placeholder="Peter de Vries"
                         type="text"
                         className={styles.input}
                         onChange={(e) => setCustomer(e.target.value)} />
                 </div>
                 <div className={styles.item}>
-                    <label className={styles.label}>Phone Number</label>
+                    <label className={styles.label}>Telefoonnummer</label>
                     <input
                         placeholder="+32 123 345 678"
                         type="text"
@@ -32,15 +32,15 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
                         onChange={(e) => setPhone(e.target.value)} />
                 </div>
                 <div className={styles.item}>
-                    <label className={styles.label}>Address</label>
+                    <label className={styles.label}>ADRES</label>
                     <input
-                        placeholder="Provincieweg 100, 9552 Borsbeke"
+                        placeholder="Straatnaam nr, Gemeente"
                         type="textarea"
                         className={styles.input}
                         onChange={(e) => setAddsress(e.target.value)} />
                 </div>
                 <button className={styles.button} onClick={handleClick}>
-                    Order Now!
+                    BESTEL NU!
                 </button>
             </div>
         </div>

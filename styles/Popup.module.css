@@ -3,22 +3,25 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    z-index: 3;
+    z-index: 1000;
     text-align: center;
+    overflow-y: auto;
 }
 
 .innerPopup {
-    position: relative;
+    position: absolute;
+    top: 100px;
     padding: 32px;
-    width: 100%;
+    width: 50%;
     max-width: 640px;
     background-color: #222;
-    color: white
+    color: white;
 }
 
 .button {

@@ -23,6 +23,7 @@ const cartSlice = createSlice({
             state.quantity += 1;  
             state.total += action.payload.price;
             state.saladItems.push(action.payload.basis.concat(action.payload.groente, action.payload.proteine, action.payload.afwerking, action.payload.dressing));
+            
         },
         reset: (state) => {
             state.products = [];

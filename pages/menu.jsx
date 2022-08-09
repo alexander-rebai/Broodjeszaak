@@ -6,10 +6,21 @@ import SnackList from '../components/snacks/SnackList'
 import ZoetigheidList from '../components/zoetigheden/ZoetigheidList'
 import styles from "../styles/Menu.module.css";
 import Saladbar from '../components/Saladbar'
+import Image from 'next/image'
 
 const menu = ({ broodjesList, zoetigheidList, snackList, paniniList}) => {
   return (
     <div className={styles.container}>
+      <div className={styles.type}>
+          <div className={styles.callButton}>
+            <Image src="/img/telephone.png" alt="" width="32" height="32" />
+          </div>
+          <div className={styles.texts}>
+            <div className={styles.text}>BESTEL TELEFONISCH!</div>
+            <div className={styles.text}>053 / 41 88 51</div>
+            <div className={styles.text}>0495 / 43 44 58</div> 
+          </div>
+        </div>
       <h1 className={styles.type}>Broodjes</h1>
       <BroodjesList broodjesList={broodjesList} />
       <h1 className={styles.type}>Paninis</h1>

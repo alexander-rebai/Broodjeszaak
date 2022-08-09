@@ -16,7 +16,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [open, setOpen] = useState(true);
   const [cash, setCash] = useState(false);
-  const amount = cart.total;
+  const [amount, setAmount] = useState(cart.total);
   const currency = "USD";
   const style = { layout: "vertical" };
   const dispatch = useDispatch();
@@ -30,6 +30,12 @@ const Cart = () => {
     }
     return cart.quantities[i] + "x" + cart.types[i] + ": "+ p.title;
   })
+
+  useEffect(() => {
+    if(cart.total < 15){
+      setAmount(cart.total + 3);
+    }
+  } ,[cart.products]);
 
   const createOrder = async (data) => {
     try {
@@ -90,7 +96,7 @@ const Cart = () => {
               createOrder({
                 customer: shipping.name.full_name,
                 address: shipping.address.address_line_1,
-                total: cart.total,
+                total: amount,
                 products: items,
                 saladItems: saladItems,
                 paymentMethod: 1,
@@ -109,10 +115,10 @@ const Cart = () => {
         <table className={styles.table}>
           <tbody>
             <tr className={styles.trTitle}>
-              <th>Product Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
+              <th>Product Naam</th>
+              <th>Prijs</th>
+              <th>Hoeveelheid</th>
+              <th>Totaal</th>
             </tr>
           </tbody>
           <tbody>
@@ -130,7 +136,7 @@ const Cart = () => {
                   </td>
                   <td>
                     <span className={styles.total}>
-                      €{(product.price * product.quantity).toFixed(2)}
+                      €{(amount).toFixed(2)}
                     </span>
                   </td>
                 </tr>
@@ -141,9 +147,10 @@ const Cart = () => {
       </div>
       <div className={styles.right}>
         <div className={styles.wrapper}>
-          <h2 className={styles.title}>CART TOTAL</h2>
+          <h2 className={styles.title}>Winkelmandje {cart.total < 15 ? ("(€3 leveringskost)") : ("")}</h2>
+          <p></p>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Total:</b>€{(cart.total).toFixed(2)}
+            <b className={styles.totalTextTitle}>Totaal:</b>€{(amount).toFixed(2)}
           </div>
           {open ? (
             <div className={styles.paymentMethods}>
@@ -155,14 +162,14 @@ const Cart = () => {
                   }
                 }}
               >
-                CASH ON DELIVERY
+                CASH BIJ LEVERING
               </button>
               <PayPalScriptProvider
                 options={{
                   "client-id":
                     "AQ44ett-KCh2K0U0SHkxy0tdJitVJ-CK0PDXNhTRtvxC3FQnZjBTHNaW9zrPCD-oC8jU_1-vLO4YJDO2",
                   components: "buttons",
-                  currency: "USD",
+                  currency: "EUR",
                   "disable-funding": "credit,card,p24,sofort,bancontact"
                 }}
               >
@@ -171,12 +178,12 @@ const Cart = () => {
             </div>
           ) : (
             <button onClick={() => setOpen(true)} className={styles.button}>
-              CHECKOUT NOW!
+              NU AFREKENEN!
             </button>
           )}
         </div>
       </div>
-      {cash && <OrderDetails total={cart.total} createOrder={createOrder} products={items} saladItems={saladItems} />}
+      {cash && <OrderDetails total={amount} createOrder={createOrder} products={items} saladItems={saladItems}/>}
     </div>
   );
 };

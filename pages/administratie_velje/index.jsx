@@ -104,7 +104,7 @@ const Index = ({ orders }) => {
 }
 
 export const getServerSideProps = async () => {
-    const orderRes = await axios.get("http://localhost:3000/api/orders");
+    const orderRes = await axios.get("https://broodjeszaak.vercel.app/api/orders");
 
     return {
         props: {

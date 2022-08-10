@@ -2,9 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/broodjes": "pages/api/broodjes.js",
-  "/menu": "pages/menu.js",
-  "/api/zoetigheden": "pages/api/zoetigheden.js",
-  "/api/snacks": "pages/api/snacks.js",
-  "/api/paninis": "pages/api/paninis.js"
+  "/": "pages/index.js",
+  "/about": "pages/about.js",
+  "/menu": "pages/menu.js"
 }

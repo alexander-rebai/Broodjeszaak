@@ -1,15 +1,24 @@
 import styles from "../../styles/Admin.module.css"
 import axios from "axios"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Popup from "../../components/Popup";
+import useSound from 'use-sound';
+import boopSfx from '../../sounds/boop.mp3';
 
 const Index = ({ orders }) => {
     const [orderList, setOrderList] = useState(orders);
     const [popup, setPopup] = useState(false);
     const [currentOrder, setCurrentOrder] = useState({});
+    const [play] = useSound(boopSfx);
+
+
+    useEffect(() => {
+        setOrderList(orders);
+        play();
+    }, [orders]);
 
     const handleAfgewerkt = async (id) => {
-        const res = await axios.put(`http://localhost:3000/api/orders/${id}`, {
+        const res = await axios.put(`https://broodjeszaak.vercel.app/api/orders/${id}`, {
             afgewerkt: true,
         });
         if (res.status === 200) {
@@ -54,7 +63,7 @@ const Index = ({ orders }) => {
                                         {order.paymentMethod === 0 ? <span>cash</span> : <span>paid</span>}
                                     </td>
                                     <td>
-                                        <button className={styles.button} onClick={() => { 
+                                        <button className={styles.button} onClick={() => {
                                             setPopup(true);
                                             setCurrentOrder(order);
                                         }}>Bekijk</button>
@@ -89,10 +98,10 @@ const Index = ({ orders }) => {
                                     <td>
                                         {order.paymentMethod === 0 ? <span>cash</span> : <span>paid</span>}
                                     </td>
-                                    <button className={styles.button} onClick={() => { 
-                                            setPopup(true);
-                                            setCurrentOrder(order);
-                                        }}>Bekijk</button>  
+                                    <button className={styles.button} onClick={() => {
+                                        setPopup(true);
+                                        setCurrentOrder(order);
+                                    }}>Bekijk</button>
                                 </tr>
                             )}
                         </tbody>

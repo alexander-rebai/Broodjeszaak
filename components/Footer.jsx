@@ -6,15 +6,10 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.item}>
         <div className={styles.card}>
-          <h3 className={styles.motto}>
-            Bij Broodjes- & Saladebar Velje kan je terecht voor heerlijke broodjes, salades en snacks. Onze klanten zijn voor ons het allerbelangrijkste, en daarom maken wij al onze producten met een extra portie liefde. Kom naar onze winkel, of bestel nu online.
-          </h3>
-        </div>
-        <div className={styles.card}>
           <h1 className={styles.title}>ONZE LOCATIE</h1>
           <p className={styles.text}>
             Gentsesteenweg 334
-            <br /> Erondegem
+            <br /> 9420 Erondegem
             <br /> 053 / 41 88 51
             <br /> 0495 / 43 44 58
             <br /> Bestellingen.velje@outlouk.be
@@ -32,16 +27,15 @@ const Footer = () => {
           </p>
         </div>
         <div className={styles.card}>
-          <h1 className={styles.title}>LEVERING</h1>
+          <h1 className={styles.title}>LEVERING - VOOR BEDRIJVEN ENKEL</h1>
+          <p className={styles.text}>
+            TELEFONISCH BESTELLEN VOOR LEVERINGEN!
+          </p>
           <p className={styles.text}>
             GRATIS LEVERING VANAF €15
           </p>
           <p className={styles.text}>
             VOOR 10U BESTELD = VOOR 12U GELEVERD
-          </p>
-          <p className={styles.text}>
-            LEVERING GEBEURT TUSSEN
-            <br /> 12:00 – 13:00
           </p>
         </div>
         <div className={styles.card}>

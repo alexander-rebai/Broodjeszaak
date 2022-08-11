@@ -23,13 +23,13 @@ const menu = ({ broodjesList, zoetigheidList, snackList, paniniList}) => {
         </div>
       <h1 className={styles.type}>Broodjes</h1>
       <BroodjesList broodjesList={broodjesList} />
-      <h1 className={styles.type}>Paninis</h1>
+      <h1 className={styles.type}>Panini's</h1>
       <PaniniList paniniList={paniniList}/>
       <h1 className={styles.type}>Snacks</h1>
       <SnackList snackList={snackList} />
       <h1 className={styles.type}>Zoetigheden</h1>
       <ZoetigheidList zoetigheidList={zoetigheidList} />
-      <h1 className={styles.type}>Salade Bar</h1>
+      <h1 className={styles.type}>Salade Bar - Zelf gemaakt Slaatje vanaf €9</h1>
       <Saladbar/>
     </div>
   )

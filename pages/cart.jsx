@@ -31,12 +31,6 @@ const Cart = () => {
     return cart.quantities[i] + "x" + cart.types[i] + ": "+ p.title;
   })
 
-  useEffect(() => {
-    if(cart.total < 15){
-      setAmount(cart.total + 3);
-    }
-  } ,[cart.products, cart.total]);
-
   const createOrder = async (data) => {
     try {
       const res = await axios.post("https://broodjeszaak.vercel.app/api/orders", data);

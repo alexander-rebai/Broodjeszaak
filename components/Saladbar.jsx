@@ -8,7 +8,7 @@ const Saladbar = () => {
 
     const basis = ["gemengde sla", "rucola", "ijsbergsla", "pasta", "rijst", "couscous", "quinoa", "aardappel"];
     const groente = ["cherrytomaat", "bloemkool", "paprika", "mais", "wortel", "komkommer", "tomaat", "tuinkers", "perzik"];
-    const proteine = ["feta", "kipfilet", "tonijn", "tofu", "hesp", "tonijnsla (+ €1)", "krabsla", "geitenkaas", "mozarella", "gerookte zalm (+ €3)"];
+    const proteine = ["feta", "kipfilet", "tonijn", "tofu", "hesp", "tonijnsla (+ €1)", "krabsla", "geitenkaas", "mozzarella", "gerookte zalm (+ €3)"];
     const afwerking = ["notenmix", "parmezaanse kaas", "rozijnen", "peterselie", "gedroogde ui", "olijven", "verse ui", "zongedroogde tomaat"];
     const dressing = ["mayonaise", "cocktail", "yoghurtdressing", "bieslookvinaigrette", "olijfolie", "honing-mosterd vinaigrette"];
 
@@ -32,31 +32,32 @@ const Saladbar = () => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        if (!basisList.length || !groenteList.length || !proteineList.length || !afwerkingList.length || !dressingList.length) {
-            alert("Je moet minstens 1 ingredient in elke categorie selecteren");
-        } else {
-            dispatch(addSalad({ ...salad }));
-            setShowSalad(false);
-        }
+        dispatch(addSalad({ ...salad }));
+        setShowSalad(false);
     }
 
     const calculatePrice = () => {
-        let price = 9;
-        if (proteineList.includes("gerookte zalm (+ €3)")) {
-            price += 3;
-        } else if (proteineList.includes("tonijnsla (+ €1)")) {
-            price += 1;
+        if (!basisList.length || !groenteList.length || !proteineList.length || !afwerkingList.length || !dressingList.length) {
+            alert("Je moet minstens 1 ingredient in elke categorie selecteren");
+        } else {
+            setShowSalad(true);
+            let price = 9;
+            if (proteineList.includes("gerookte zalm (+ €3)")) {
+                price += 3;
+            } else if (proteineList.includes("tonijnsla (+ €1)")) {
+                price += 1;
+            }
+            setSalad({
+                ...salad,
+                basis: basisList,
+                groente: groenteList,
+                proteine: proteineList,
+                afwerking: afwerkingList,
+                dressing: dressingList,
+                price: price
+            });
+            return price;
         }
-        setSalad({
-            ...salad,
-            basis: basisList,
-            groente: groenteList,
-            proteine: proteineList,
-            afwerking: afwerkingList,
-            dressing: dressingList,
-            price: price
-        });
-        return price;
     }
     const handleChangeBasis = (e, item) => {
         const checked = e.target.checked;
@@ -223,7 +224,6 @@ const Saladbar = () => {
                 {!showSalad &&
                     <button className={styles.button} onClick={() => {
                         calculatePrice()
-                        setShowSalad(true);
                     }}>Bouw mijn Salade</button>
                 }
                 {showSalad &&

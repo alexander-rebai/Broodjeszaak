@@ -2,27 +2,17 @@ import styles from "../../styles/Admin.module.css"
 import axios from "axios"
 import { useEffect, useState } from "react";
 import Popup from "../../components/Popup";
+import { useRouter } from "next/router";
 
 const Index = ({ orders }) => {
     const [orderList, setOrderList] = useState(orders);
-    const [isLoading, setLoading] = useState(false)
-
     const [popup, setPopup] = useState(false);
     const [currentOrder, setCurrentOrder] = useState({});
+    const router = useRouter();
 
     useEffect(() => {
-        setLoading(true)
-        fetch('https://broodjeszaak.vercel.app/api/orders')
-          .then((res) => res.json())
-          .then((data) => {
-            setOrderList(data)
-            setLoading(false)
-          })
-      }, [])
-
-    // useEffect(() => {
-    //     setOrderList(orders);
-    // }, [orders]);
+        setOrderList(orders);
+    }, [orders]);
 
     const handleAfgewerkt = async (id) => {
         const res = await axios.put(`https://broodjeszaak.vercel.app/api/orders/${id}`, {
@@ -39,6 +29,7 @@ const Index = ({ orders }) => {
                 return order;
             }));
         }
+        router.push(`/administratie_velje`);
     }
 
     return (
@@ -119,14 +110,14 @@ const Index = ({ orders }) => {
     )
 }
 
-// export const getServerSideProps = async () => {
-//     const orderRes = await axios.get("https://broodjeszaak.vercel.app/api/orders");
+export const getServerSideProps = async () => {
+    const orderRes = await axios.get("https://broodjeszaak.vercel.app/api/orders");
 
-//     return {
-//         props: {
-//             orders: orderRes.data,
-//         },
-//     };
-// };
+    return {
+        props: {
+            orders: orderRes.data,
+        },
+    };
+};
 
 export default Index

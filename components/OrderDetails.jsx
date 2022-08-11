@@ -14,7 +14,7 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
-                <div className={styles.title}>Het te betalen bedrag bedraagt €{(total).toFixed(2)} na levering.</div>
+                <div className={styles.title}>Het te betalen bedrag bedraagt €{(total).toFixed(2)} bij AFHALING.</div>
                 <div className={styles.item}>
                     <label className={styles.label}>Naam</label>
                     <input
@@ -30,14 +30,6 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
                         type="text"
                         className={styles.input}
                         onChange={(e) => setPhone(e.target.value)} />
-                </div>
-                <div className={styles.item}>
-                    <label className={styles.label}>ADRES</label>
-                    <input
-                        placeholder="Straatnaam nr, Gemeente"
-                        type="textarea"
-                        className={styles.input}
-                        onChange={(e) => setAddsress(e.target.value)} />
                 </div>
                 <button className={styles.button} onClick={handleClick}>
                     BESTEL NU!

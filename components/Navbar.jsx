@@ -19,7 +19,7 @@ const Navbar = () => {
           </Link>
           <Image src="/img/logoVelje.png" alt="" width="160px" height="69px" />
           <Link href="/about" passHref>
-            <li className={styles.listItem}>Over ons</li>
+            <li className={styles.listItem}>Wie zijn wij?</li>
           </Link>
         </ul>
         <Link href="/cart" passHref>

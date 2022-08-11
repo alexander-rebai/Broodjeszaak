@@ -13,6 +13,7 @@ const Footer = () => {
             <br /> 053 / 41 88 51
             <br /> 0495 / 43 44 58
             <br /> Bestellingen.velje@outlouk.be
+            <br /> Btw nr 0867121602
           </p>
         </div>
         <div className={styles.card}>

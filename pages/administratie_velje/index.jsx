@@ -11,7 +11,11 @@ const Index = ({ orders }) => {
     const router = useRouter();
 
     useEffect(() => {
-        setOrderList(orders);
+        if (orderList.length === 0) {
+            router.push(`/administratie_velje`);
+        } else {
+            setOrderList(orders);
+        }
     }, [orders]);
 
     const handleAfgewerkt = async (id) => {

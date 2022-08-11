@@ -7,6 +7,21 @@
   color: white;
 }
 
+.container4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  color: white;
+}
+
+.categorie {
+  margin-bottom: 20px;
+  color: #B68D40;
+  font-weight: bold;
+}
+
 .button {
   height: 30px;
   margin-left: 10px;

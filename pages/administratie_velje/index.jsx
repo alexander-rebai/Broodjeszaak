@@ -5,12 +5,24 @@ import Popup from "../../components/Popup";
 
 const Index = ({ orders }) => {
     const [orderList, setOrderList] = useState(orders);
+    const [isLoading, setLoading] = useState(false)
+
     const [popup, setPopup] = useState(false);
     const [currentOrder, setCurrentOrder] = useState({});
 
     useEffect(() => {
-        setOrderList(orders);
-    }, [orders]);
+        setLoading(true)
+        fetch('https://broodjeszaak.vercel.app/api/orders')
+          .then((res) => res.json())
+          .then((data) => {
+            setOrderList(data)
+            setLoading(false)
+          })
+      }, [])
+
+    // useEffect(() => {
+    //     setOrderList(orders);
+    // }, [orders]);
 
     const handleAfgewerkt = async (id) => {
         const res = await axios.put(`https://broodjeszaak.vercel.app/api/orders/${id}`, {
@@ -107,14 +119,14 @@ const Index = ({ orders }) => {
     )
 }
 
-export const getServerSideProps = async () => {
-    const orderRes = await axios.get("https://broodjeszaak.vercel.app/api/orders");
+// export const getServerSideProps = async () => {
+//     const orderRes = await axios.get("https://broodjeszaak.vercel.app/api/orders");
 
-    return {
-        props: {
-            orders: orderRes.data,
-        },
-    };
-};
+//     return {
+//         props: {
+//             orders: orderRes.data,
+//         },
+//     };
+// };
 
 export default Index

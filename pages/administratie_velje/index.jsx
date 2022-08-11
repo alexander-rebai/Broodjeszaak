@@ -3,7 +3,7 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 import Popup from "../../components/Popup";
 import useSound from 'use-sound';
-import boopSfx from '../../sounds/boop.mp3';
+import boopSfx from '../../sounds/ping.mp3';
 
 const Index = ({ orders }) => {
     const [orderList, setOrderList] = useState(orders);

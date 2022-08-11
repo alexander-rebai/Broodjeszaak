@@ -23,7 +23,7 @@ const menu = ({ broodjesList, zoetigheidList, snackList, paniniList}) => {
         </div>
       <h1 className={styles.type}>Broodjes</h1>
       <BroodjesList broodjesList={broodjesList} />
-      <h1 className={styles.type}>Panini's</h1>
+      <h1 className={styles.type}>Panini {`&apos`} s</h1>
       <PaniniList paniniList={paniniList}/>
       <h1 className={styles.type}>Snacks</h1>
       <SnackList snackList={snackList} />

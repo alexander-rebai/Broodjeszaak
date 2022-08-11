@@ -2,19 +2,14 @@ import styles from "../../styles/Admin.module.css"
 import axios from "axios"
 import { useEffect, useState } from "react";
 import Popup from "../../components/Popup";
-import useSound from 'use-sound';
-import boopSfx from '../../sounds/ping.mp3';
 
 const Index = ({ orders }) => {
     const [orderList, setOrderList] = useState(orders);
     const [popup, setPopup] = useState(false);
     const [currentOrder, setCurrentOrder] = useState({});
-    const [play] = useSound(boopSfx);
-
 
     useEffect(() => {
         setOrderList(orders);
-        play();
     }, [orders]);
 
     const handleAfgewerkt = async (id) => {

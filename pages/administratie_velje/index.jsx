@@ -3,6 +3,7 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 import Popup from "../../components/Popup";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 const Index = ({ orders }) => {
     const [orderList, setOrderList] = useState(orders);

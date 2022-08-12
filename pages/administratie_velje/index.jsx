@@ -10,11 +10,11 @@ const Index = ({ orders }) => {
     const [popup, setPopup] = useState(false);
     const [currentOrder, setCurrentOrder] = useState({});
     const router = useRouter();
-    const cart = useSelector((state) => state.cart);
+    const toggle = useSelector((state) => state.cart.toggle);
 
     useEffect(() => {
         setOrderList(orders);
-    }, [orders, cart.toggle]);
+    }, [orders, toggle]);
 
     const handleAfgewerkt = async (id) => {
         const res = await axios.put(`https://broodjeszaak.vercel.app/api/orders/${id}`, {

@@ -35,7 +35,7 @@ const Index = ({ orders }) => {
     }
 
     return (
-        <div>
+        <div className={styles.container1}>
             <button className={styles.button} onClick={() => router.push(`/administratie_velje`)}>ZOEK NIEUWE BESTELLINGEN</button>
             <div className={styles.container}>
                 <div className={styles.item} id="borderclass">

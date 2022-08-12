@@ -4,11 +4,12 @@ import BroodjesList from '../components/broodjes/BroodjesList'
 import PaniniList from '../components/paninis/PaniniList'
 import SnackList from '../components/snacks/SnackList'
 import ZoetigheidList from '../components/zoetigheden/ZoetigheidList'
+import DrankList from '../components/dranken/DrankList'
 import styles from "../styles/Menu.module.css";
 import Saladbar from '../components/Saladbar'
 import Image from 'next/image'
 
-const menu = ({ broodjesList, zoetigheidList, snackList, paniniList}) => {
+const menu = ({ broodjesList, zoetigheidList, snackList, paniniList, drankenList}) => {
 
   const paninis = "Panini's"
 
@@ -32,6 +33,8 @@ const menu = ({ broodjesList, zoetigheidList, snackList, paniniList}) => {
       <SnackList snackList={snackList} />
       <h1 className={styles.type}>Zoetigheden</h1>
       <ZoetigheidList zoetigheidList={zoetigheidList} />
+      <h1 className={styles.type}>Dranken</h1>
+      <DrankList drankenList={drankenList} />
       <h1 className={styles.type}>Salade Bar - Zelf gemaakt Slaatje vanaf €9</h1>
       <Saladbar/>
     </div>
@@ -43,12 +46,14 @@ export const getServerSideProps = async () => {
   const res2 = await axios.get("https://broodjeszaak.vercel.app/api/zoetigheden");
   const res3 = await axios.get("https://broodjeszaak.vercel.app/api/snacks");
   const res4 = await axios.get("https://broodjeszaak.vercel.app/api/paninis");
+  const res5 = await axios.get("https://broodjeszaak.vercel.app/api/dranken");
   return {
     props: {
       broodjesList: res1.data,
       zoetigheidList: res2.data,
       snackList: res3.data,
-      paniniList: res4.data
+      paniniList: res4.data,
+      drankenList: res5.data
     }
   }
 }

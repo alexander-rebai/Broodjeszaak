@@ -144,7 +144,7 @@ const Cart = () => {
       </div>
       <div className={styles.right}>
         <div className={styles.wrapper}>
-          <h2 className={styles.title}>Winkelmandje {cart.total}</h2>
+          <h2 className={styles.title}>Winkelmandje {(cart.total).toFixed(2)}</h2>
           <p></p>
           <div className={styles.totalText}>
             <b className={styles.totalTextTitle}>Totaal:</b>€{(amount).toFixed(2)}

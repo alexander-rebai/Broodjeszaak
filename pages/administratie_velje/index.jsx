@@ -75,6 +75,7 @@ const Index = ({ orders }) => {
                     ))}
                 </table>
             </div>
+            <button className={styles.button} onClick={() => router.push(`/administratie_velje`)}>ZOEK NIEUWE BESTELLINGEN</button>
             <Popup trigger={popup} setTrigger={setPopup} order={currentOrder}>
                 <h3>test</h3>
             </Popup>

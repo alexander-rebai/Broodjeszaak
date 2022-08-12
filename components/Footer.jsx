@@ -28,9 +28,9 @@ const Footer = () => {
           </p>
         </div>
         <div className={styles.card}>
-          <h1 className={styles.title}>LEVERING - VOOR BEDRIJVEN ENKEL</h1>
+          <h1 className={styles.title}>LEVERING - ENKEL VOOR BEDRIJVEN</h1>
           <p className={styles.text}>
-            TELEFONISCH BESTELLEN VOOR LEVERINGEN!
+            TELEFONISCH OF VIA EMAIL BESTELLEN VOOR LEVERINGEN!
           </p>
           <p className={styles.text}>
             GRATIS LEVERING VANAF €15

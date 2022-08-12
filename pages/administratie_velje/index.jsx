@@ -9,14 +9,11 @@ const Index = ({ orders }) => {
     const [popup, setPopup] = useState(false);
     const [currentOrder, setCurrentOrder] = useState({});
     const router = useRouter();
+    const cart = useSelector((state) => state.cart);
 
     useEffect(() => {
-        if (orderList.length === 0) {
-            router.push(`/administratie_velje`);
-        } else {
-            setOrderList(orders);
-        }
-    }, [orders]);
+        setOrderList(orders);
+    }, [orders, cart.toggle]);
 
     const handleAfgewerkt = async (id) => {
         const res = await axios.put(`https://broodjeszaak.vercel.app/api/orders/${id}`, {

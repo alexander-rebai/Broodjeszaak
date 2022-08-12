@@ -6,6 +6,7 @@ const cartSlice = createSlice({
         products: [],
         types: [],
         quantities: [],
+        toggle: false,
         quantity: 0,
         total: 0,
         saladItems: [],
@@ -29,6 +30,7 @@ const cartSlice = createSlice({
             state.products = [];
             state.quantity= 0;
             state.total = 0;
+            state.toggle = !state.toggle
         }
     }
 })

@@ -50,7 +50,7 @@ const Order = ({ order }) => {
             <b className={styles.totalTextTitle}>Totaal:</b>€{(order.total).toFixed(2)}
           </div>
           <button disabled className={styles.button}>
-            {order.paymentMethod === 0 ? "Betalen met Cash bij levering." : "Reeds betaald."}
+            {order.paymentMethod === 0 ? "Betalen met Cash/kaart bij afhaling." : ""}
           </button>
         </div>
       </div>

@@ -24,6 +24,16 @@ const Cart = () => {
     return cart.quantities[i] + "x" + cart.types[i] + ": "+ p.title;
   })
 
+  const handleAfronden = () => {
+    const today = new Date();
+    const time = today.getHours() + today.getMinutes();
+    if (parseInt(time) < 1300) {
+      setOpen(true);
+    } else {
+      alert("U kunt alleen Bestellen tot 13:00");
+    }
+  }
+
   const createOrder = async (data) => {
     try {
       const res = await axios.post("https://broodjeszaak.vercel.app/api/orders", data);
@@ -164,7 +174,7 @@ const Cart = () => {
               </PayPalScriptProvider> */}
             </div>
           ) : (
-            <button onClick={() => setOpen(true)} className={styles.button}>
+            <button onClick={() => handleAfronden()} className={styles.button}>
               BESTELLING AFRONDEN!
             </button>
           )}

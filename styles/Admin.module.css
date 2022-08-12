@@ -4,6 +4,13 @@
     background-color: #F4EBD0;
 }
 
+.container1 {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: #F4EBD0;
+}
+
 .item {
     flex: 1;
 }

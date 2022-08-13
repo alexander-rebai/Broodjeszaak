@@ -6,9 +6,10 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
     const [customer, setCustomer] = useState("");
     const [address, setAddsress] = useState("");
     const [phone, setPhone] = useState("");
+    const [opmerking, setOpmerking] = useState("");
 
     const handleClick = () => {
-        createOrder({ customer, address, phone, total, paymentMethod: 0, products, saladItems });
+        createOrder({ customer, address, phone, total, paymentMethod: 0, products, saladItems, opmerking });
     }
 
     return (
@@ -30,6 +31,14 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
                         type="text"
                         className={styles.input}
                         onChange={(e) => setPhone(e.target.value)} />
+                </div>
+                <div className={styles.item}>
+                    <label className={styles.label}>Opmerking</label>
+                    <input
+                        placeholder="Gewense saus, ophaaluur, etc."
+                        type="textarea"
+                        className={styles.input}
+                        onChange={(e) => setOpmerking(e.target.value)} />
                 </div>
                 <button className={styles.button} onClick={handleClick}>
                     BESTEL NU!

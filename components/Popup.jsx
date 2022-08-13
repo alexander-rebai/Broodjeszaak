@@ -11,6 +11,7 @@ const Popup = (props) => {
                 <p>TelefoonNr: {props.order.phone}</p>
                 <p>Prijs: €{(props.order.total).toFixed(2)}</p>
                 <p>Aantal producten: {props.order.products.length}</p>
+                <p>Opmerking: {props.order.opmerking}</p>
                 <p>{props.order.products.filter((p) => p !== "Salad").map((p, i) => {
                     return (
                         <>

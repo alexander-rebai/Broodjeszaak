@@ -10,7 +10,9 @@ const ZoetigheidCard = ({ zoetje }) => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(addProduct({ ...zoetje, quantity, type }));
+        if (quantity > 0) {
+            dispatch(addProduct({ ...zoetje, quantity, type }));
+        }
     }
 
     return (

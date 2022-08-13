@@ -10,7 +10,9 @@ const DrankCard = ({ drank }) => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(addProduct({ ...drank, quantity, type }));
+        if (quantity > 0) {
+            dispatch(addProduct({ ...drank, quantity, type }));
+        }
     }
 
     return (

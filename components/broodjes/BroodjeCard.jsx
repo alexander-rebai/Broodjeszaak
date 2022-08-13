@@ -10,7 +10,9 @@ const BroodjeCard = ({ broodje }) => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(addProduct({ ...broodje, quantity, type }));
+        if (quantity > 0) {
+            dispatch(addProduct({ ...broodje, quantity, type }));
+        }
     }
 
     return (

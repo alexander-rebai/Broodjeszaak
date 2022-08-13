@@ -10,7 +10,9 @@ const PaniniCard = ({ panini }) => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(addProduct({ ...panini, quantity, type }));
+        if (quantity > 0) {
+            dispatch(addProduct({ ...panini, quantity, type }));
+        }
     }
 
     return (

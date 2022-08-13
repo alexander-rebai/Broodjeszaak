@@ -4,12 +4,11 @@ import styles from "../styles/OrderDetail.module.css"
 const OrderDetails = ({ total, createOrder, products, saladItems }) => {
 
     const [customer, setCustomer] = useState("");
-    const [address, setAddsress] = useState("");
     const [phone, setPhone] = useState("");
-    const [opmerking, setOpmerking] = useState("");
+    const [comment, setComment] = useState("");
 
     const handleClick = () => {
-        createOrder({ customer, address, phone, total, paymentMethod: 0, products, saladItems, opmerking });
+        createOrder({ customer, phone, total, paymentMethod: 0, products, saladItems, comment });
     }
 
     return (
@@ -38,7 +37,7 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
                         placeholder="Gewenste saus, ophaaluur, etc."
                         type="textarea"
                         className={styles.input}
-                        onChange={(e) => setOpmerking(e.target.value)} />
+                        onChange={(e) => setComment(e.target.value)} />
                 </div>
                 <button className={styles.button} onClick={handleClick}>
                     BESTEL NU!

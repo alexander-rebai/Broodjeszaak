@@ -17,7 +17,7 @@ const Index = ({ orders }) => {
     }, [orders, toggle]);
 
     const handleAfgewerkt = async (id) => {
-        const res = await axios.put(`https://https://www.broodjesvelje.be//api/orders/${id}`, {
+        const res = await axios.put(`https://www.broodjesvelje.be/api/orders/${id}`, {
             afgewerkt: true,
         });
         if (res.status === 200) {
@@ -116,7 +116,7 @@ const Index = ({ orders }) => {
 }
 
 export const getServerSideProps = async () => {
-    const orderRes = await axios.get("https://www.broodjesvelje.be//api/orders");
+    const orderRes = await axios.get("https://www.broodjesvelje.be/api/orders");
 
     return {
         props: {

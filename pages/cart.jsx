@@ -27,7 +27,7 @@ const Cart = () => {
   const handleAfronden = () => {
     const today = new Date();
     const time = today.getHours() + today.getMinutes();
-    if (parseInt(time) < 1300) {
+    if (parseInt(time) < 14) {
       setOpen(true);
     } else {
       alert("U kunt alleen Bestellen tot 13:00");
@@ -36,7 +36,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post("https://www.broodjesvelje.be//api/orders", data);
+      const res = await axios.post("https://www.broodjesvelje.be/api/orders", data);
       if (res.status === 201) {
         dispatch(reset());
         router.push(`/orders/${res.data._id}`);

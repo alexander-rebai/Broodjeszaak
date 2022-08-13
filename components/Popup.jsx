@@ -7,7 +7,6 @@ const Popup = (props) => {
             <div className={styles.innerPopup}>
                 <p>Klant: {props.order.customer}</p>
                 <p>Order id: {props.order._id}</p>
-                <p>Adres: {props.order.address}</p>
                 <p>TelefoonNr: {props.order.phone}</p>
                 <p>Prijs: €{(props.order.total).toFixed(2)}</p>
                 <p>Aantal producten: {props.order.products.length}</p>

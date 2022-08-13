@@ -27,10 +27,10 @@ const Cart = () => {
   const handleAfronden = () => {
     const today = new Date();
     const time = today.getHours() + today.getMinutes();
-    if (parseInt(time) < 14) {
+    if (parseInt(time) < 14 || today.getDate() === 7) {
       setOpen(true);
     } else {
-      alert("U kunt alleen Bestellen tot 13:00");
+      alert("U kunt alleen Bestellen tot 13:00, en van Maandag tot Zaterdag");
     }
   }
 

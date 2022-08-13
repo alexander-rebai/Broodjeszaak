@@ -35,7 +35,7 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
                 <div className={styles.item}>
                     <label className={styles.label}>Opmerking</label>
                     <input
-                        placeholder="Gewense saus, ophaaluur, etc."
+                        placeholder="Gewenste saus, ophaaluur, etc."
                         type="textarea"
                         className={styles.input}
                         onChange={(e) => setOpmerking(e.target.value)} />

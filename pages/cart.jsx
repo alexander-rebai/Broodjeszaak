@@ -133,7 +133,7 @@ const Cart = () => {
                   </td>
                   <td>
                     <span className={styles.total}>
-                      €{(amount).toFixed(2)}
+                      €{(product.price*product.quantity).toFixed(2)}
                     </span>
                   </td>
                 </tr>

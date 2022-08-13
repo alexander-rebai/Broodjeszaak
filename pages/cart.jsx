@@ -36,7 +36,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post("https://broodjeszaak.vercel.app/api/orders", data);
+      const res = await axios.post("https://www.broodjesvelje.be//api/orders", data);
       if (res.status === 201) {
         dispatch(reset());
         router.push(`/orders/${res.data._id}`);

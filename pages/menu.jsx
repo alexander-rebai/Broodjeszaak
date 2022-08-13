@@ -42,11 +42,11 @@ const menu = ({ broodjesList, zoetigheidList, snackList, paniniList, drankenList
 }
 
 export const getServerSideProps = async () => {
-  const res1 = await axios.get("https://broodjeszaak.vercel.app/api/broodjes");
-  const res2 = await axios.get("https://broodjeszaak.vercel.app/api/zoetigheden");
-  const res3 = await axios.get("https://broodjeszaak.vercel.app/api/snacks");
-  const res4 = await axios.get("https://broodjeszaak.vercel.app/api/paninis");
-  const res5 = await axios.get("https://broodjeszaak.vercel.app/api/dranken");
+  const res1 = await axios.get("https://www.broodjesvelje.be/api/broodjes");
+  const res2 = await axios.get("https://www.broodjesvelje.be/api/zoetigheden");
+  const res3 = await axios.get("https://www.broodjesvelje.be/api/snacks");
+  const res4 = await axios.get("https://www.broodjesvelje.be/api/paninis");
+  const res5 = await axios.get("https://www.broodjesvelje.be/api/dranken");
   return {
     props: {
       broodjesList: res1.data,

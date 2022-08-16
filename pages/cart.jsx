@@ -21,16 +21,21 @@ const Cart = () => {
     if (p.title === "Salad") {
       return p.title
     }
-    return cart.quantities[i] + "x" + cart.types[i] + ": "+ p.title;
+    return cart.quantities[i] + "x" + cart.types[i] + ": " + p.title;
   })
 
   const handleAfronden = () => {
     const today = new Date();
-    const time = today.getHours() + today.getMinutes();
-    if (parseInt(time) < 14 || today.getDate() === 7) {
+    if (today.getHours() > 10 || today.getDate() === 7 || today.getDate() === 1) {
+      alert("Online bestellen kan van dinsdag tot zaterdag, tot 10u")
+    }
+    else if (today.getHours() === 10) {
+      if (today.getMinutes() > 0) {
+        alert("Online bestellen kan van dinsdag tot zaterdag, tot 10u")
+      }
+    }
+    else {
       setOpen(true);
-    } else {
-      alert("U kunt alleen Bestellen tot 13:00, en van Maandag tot Zaterdag");
     }
   }
 
@@ -133,7 +138,7 @@ const Cart = () => {
                   </td>
                   <td>
                     <span className={styles.total}>
-                      €{(product.price*product.quantity).toFixed(2)}
+                      €{(product.price * product.quantity).toFixed(2)}
                     </span>
                   </td>
                 </tr>
@@ -180,7 +185,7 @@ const Cart = () => {
           )}
         </div>
       </div>
-      {cash && <OrderDetails total={amount} createOrder={createOrder} products={items} saladItems={saladItems}/>}
+      {cash && <OrderDetails total={amount} createOrder={createOrder} products={items} saladItems={saladItems} />}
     </div>
   );
 };

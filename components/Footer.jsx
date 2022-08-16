@@ -40,6 +40,12 @@ const Footer = () => {
           </p>
         </div>
         <div className={styles.card}>
+          <h1 className={styles.title}>ONLINE BESTELLEN VOOR AFHALING</h1>
+          <p className={styles.text}>
+            KAN TOT 10U
+          </p>
+        </div>
+        <div className={styles.card}>
           <h1 className={styles.title}>WEBSITE</h1>
           <p className={styles.text}>
             Gemaakt door Alexander Rebai

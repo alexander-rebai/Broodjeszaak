@@ -10,11 +10,13 @@ const Index = ({ orders }) => {
     const [popup, setPopup] = useState(false);
     const [currentOrder, setCurrentOrder] = useState({});
     const router = useRouter();
-    const toggle = useSelector((state) => state.cart.toggle);
 
     useEffect(() => {
         setOrderList(orders);
-    }, [orders, toggle]);
+        if ((new Date()).getHours() === 10 && (new Date()).getMinutes() === 0 && (new Date()).getSeconds() === 0){
+            router.push(`/administratie_velje`);
+        }
+    }, [orders]);
 
     const handleAfgewerkt = async (id) => {
         const res = await axios.put(`https://www.broodjesvelje.be/api/orders/${id}`, {

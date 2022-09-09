@@ -13,7 +13,7 @@ const Footer = () => {
             <br /> 053 / 41 88 51
             <br /> 0495 / 43 44 58
             <br /> velje@outlook.be
-            <br /> Btw nr 0867121602
+            <br /> Btw BE0867121602
           </p>
         </div>
         <div className={styles.card}>
@@ -36,13 +36,7 @@ const Footer = () => {
             GRATIS LEVERING VANAF €15
           </p>
           <p className={styles.text}>
-            VOOR 10U BESTELD = VOOR 12U GELEVERD
-          </p>
-        </div>
-        <div className={styles.card}>
-          <h1 className={styles.title}>ONLINE BESTELLEN VOOR AFHALING</h1>
-          <p className={styles.text}>
-            KAN TOT 10U
+            VOOR 10U BESTELLEN!
           </p>
         </div>
         <div className={styles.card}>

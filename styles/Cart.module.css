@@ -53,6 +53,14 @@
   margin-right: 10px;
 }
 
+.removeButton {
+  height: 30px;
+  color: #222;
+  background-color: #D6AD60;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .button {
   height: 30px;
   color: #222;

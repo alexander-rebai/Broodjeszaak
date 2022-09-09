@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "../styles/About.module.css";
 import Image from 'next/image'
+import ContactForm from '../components/Contact';
 
 const about = () => {
 
@@ -17,6 +18,9 @@ const about = () => {
         <br />
         {text2}
       </p>
+      <div className={styles.formContainer}>
+        <ContactForm />
+      </div>
     </div>
   )
 }

@@ -9,26 +9,33 @@ import styles from "../styles/Menu.module.css";
 import Saladbar from '../components/Saladbar'
 import Image from 'next/image'
 
-const menu = ({ broodjesList, zoetigheidList, snackList, paniniList, drankenList}) => {
+const menu = ({ broodjesList, zoetigheidList, snackList, paniniList, drankenList }) => {
 
   const paninis = "Panini's"
 
   return (
     <div className={styles.container}>
       <div className={styles.type}>
-          <div className={styles.callButton}>
-            <Image src="/img/telephone.png" alt="" width="32" height="32" />
-          </div>
-          <div className={styles.texts}>
-            <div className={styles.text}>BESTEL TELEFONISCH!</div>
-            <div className={styles.text}>053 / 41 88 51</div>
-            <div className={styles.text}>0495 / 43 44 58</div> 
-          </div>
+        <div className={styles.callButton}>
+          <Image src="/img/telephone.png" alt="" width="32" height="32" />
         </div>
+        <div className={styles.texts}>
+          <div className={styles.text}>BESTEL TELEFONISCH!</div>
+          <div className={styles.text}>053 / 41 88 51</div>
+          <div className={styles.text}>0495 / 43 44 58</div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div className={styles.type}>
+        <a href="menu pdf.pdf" download="Velje Menu.pdf">
+          <button className={styles.button}>DOWNLOAD MENU</button>
+        </a>
+      </div>
       <h1 className={styles.type}>Broodjes</h1>
       <BroodjesList broodjesList={broodjesList} />
       <h1 className={styles.type}>{paninis}</h1>
-      <PaniniList paniniList={paniniList}/>
+      <PaniniList paniniList={paniniList} />
       <h1 className={styles.type}>Snacks</h1>
       <SnackList snackList={snackList} />
       <h1 className={styles.type}>Zoetigheden</h1>
@@ -36,7 +43,7 @@ const menu = ({ broodjesList, zoetigheidList, snackList, paniniList, drankenList
       <h1 className={styles.type}>Dranken</h1>
       <DrankList drankenList={drankenList} />
       <h1 className={styles.type}>Salade Bar - Zelf gemaakt Slaatje vanaf €9</h1>
-      <Saladbar/>
+      <Saladbar />
     </div>
   )
 }

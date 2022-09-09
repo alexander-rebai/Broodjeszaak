@@ -6,12 +6,12 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { reset } from "../redux/cartSlice";
 import OrderDetails from "../components/OrderDetails";
+import CartItem from "../components/CartItem";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [open, setOpen] = useState(false);
   const [cash, setCash] = useState(false);
-  const [amount, setAmount] = useState(cart.total);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -51,66 +51,6 @@ const Cart = () => {
     }
   };
 
-  // // Custom component to wrap the PayPalButtons and handle currency changes
-  // const ButtonWrapper = ({ currency, showSpinner }) => {
-  //   // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
-  //   // This is the main reason to wrap the PayPalButtons in a new component
-  //   const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
-
-  //   useEffect(() => {
-  //     dispatch({
-  //       type: "resetOptions",
-  //       value: {
-  //         ...options,
-  //         currency: currency,
-  //       },
-  //     });
-  //   }, [currency, showSpinner]);
-
-  //   return (
-  //     <>
-  //       {showSpinner && isPending && <div className="spinner" />}
-  //       <PayPalButtons
-  //         style={style}
-  //         disabled={false}
-  //         forceReRender={[amount, currency, style]}
-  //         fundingSource={undefined}
-  //         createOrder={(data, actions) => {
-  //           return actions.order
-  //             .create({
-  //               purchase_units: [
-  //                 {
-  //                   amount: {
-  //                     currency_code: currency,
-  //                     value: amount,
-  //                   },
-  //                 },
-  //               ],
-  //             })
-  //             .then((orderId) => {
-  //               // Your code here after create the order
-  //               return orderId;
-  //             });
-  //         }}
-  //         onApprove={function (data, actions) {
-  //           return actions.order.capture().then(function (details) {
-  //             const shipping = details.purchase_units[0].shipping;
-  //             createOrder({
-  //               customer: shipping.name.full_name,
-  //               address: shipping.address.address_line_1,
-  //               total: amount,
-  //               products: items,
-  //               saladItems: saladItems,
-  //               paymentMethod: 1,
-  //               afgewerkt: false,
-  //             });
-  //           });
-  //         }}
-  //       />
-  //     </>
-  //   );
-  // };
-
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -124,24 +64,9 @@ const Cart = () => {
             </tr>
           </tbody>
           <tbody>
-            {cart.products.map((product) => {
+            {cart.products.map((product, i) => {
               return (
-                <tr className={styles.tr} key={13 * Math.random()}>
-                  <td>
-                    <span className={styles.name}>{product.title}</span>
-                  </td>
-                  <td>
-                    <span className={styles.price}>€{product.price}</span>
-                  </td>
-                  <td>
-                    <span className={styles.quantity}>{product.quantity}</span>
-                  </td>
-                  <td>
-                    <span className={styles.total}>
-                      €{(product.price * product.quantity).toFixed(2)}
-                    </span>
-                  </td>
-                </tr>
+                <CartItem key={i} product={product}/>
               )
             })}
           </tbody>
@@ -152,7 +77,7 @@ const Cart = () => {
           <h2 className={styles.title}>Winkelmandje {(cart.total).toFixed(2)}</h2>
           <p></p>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Totaal:</b>€{(amount).toFixed(2)}
+            <b className={styles.totalTextTitle}>Totaal:</b>€{(cart.total).toFixed(2)}
           </div>
           {open ? (
             <div className={styles.paymentMethods}>
@@ -166,17 +91,6 @@ const Cart = () => {
               >
                 CASH/ELEKTRONISCH BIJ AFHALING
               </button>
-              {/* <PayPalScriptProvider
-                options={{
-                  "client-id":
-                    "AQ44ett-KCh2K0U0SHkxy0tdJitVJ-CK0PDXNhTRtvxC3FQnZjBTHNaW9zrPCD-oC8jU_1-vLO4YJDO2",
-                  components: "buttons",
-                  currency: "EUR",
-                  "disable-funding": "credit,card,p24,sofort,bancontact"
-                }}
-              >
-                <ButtonWrapper currency={currency} showSpinner={false} />
-              </PayPalScriptProvider> */}
             </div>
           ) : (
             <button onClick={() => handleAfronden()} className={styles.button}>
@@ -185,7 +99,7 @@ const Cart = () => {
           )}
         </div>
       </div>
-      {cash && <OrderDetails total={amount} createOrder={createOrder} products={items} saladItems={saladItems} />}
+      {cash && <OrderDetails total={cart.total} createOrder={createOrder} products={items} saladItems={saladItems} />}
     </div>
   );
 };

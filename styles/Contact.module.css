@@ -1,0 +1,40 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    width: 50%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+}
+
+.area {
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+}
+
+.formItem {
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.formButton {
+    border: none;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+    color: #D6AD60;
+    cursor: pointer;
+}
+
+.bedankt {
+    padding: 5px 0 20px 0;
+}

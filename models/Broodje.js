@@ -14,6 +14,11 @@ const BroodjeSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    broodjesType : {
+        type: String,
+        required: true
+    }
+    ,
     categorie: {
         type: String,
         required: true

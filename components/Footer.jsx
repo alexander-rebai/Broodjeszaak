@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "../styles/Footer.module.css";
+import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -14,6 +15,11 @@ const Footer = () => {
             <br /> 0495 / 43 44 58
             <br /> velje@outlook.be
             <br /> Btw BE0867121602
+            <br />
+            <a href="https://www.facebook.com/velje9420" target="_blank"><FaFacebook/></a>
+            <br />
+            <a href="https://instagram.com/broodjes.velje?igshid=YmMyMTA2M2Y=" target="_blank"><FaInstagram/></a>
+
           </p>
         </div>
         <div className={styles.card}>
@@ -25,6 +31,9 @@ const Footer = () => {
           <p className={styles.text}>
             ZATERDAG
             <br /> 9:00 – 14:00
+          </p>
+          <p className={styles.text}>
+            GESLOTEN OP ZON- EN FEESTDAGEN
           </p>
         </div>
         <div className={styles.card}>

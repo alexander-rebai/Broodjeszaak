@@ -2,7 +2,8 @@ import styles from "../../styles/Order.module.css";
 import axios from "axios"
 
 const Order = ({ order }) => {
-  console.log(order.products)
+  console.log(order)
+  console.log(order.ophaalDatum)
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -11,6 +12,7 @@ const Order = ({ order }) => {
             <thead>
               <tr className={styles.trTitle}>
                 <th>Bestellings ID</th>
+                <th>DATUM</th>
                 <th>Klant</th>
                 <th>Adres</th>
                 <th>Totaal</th>
@@ -21,6 +23,9 @@ const Order = ({ order }) => {
               <tr className={styles.tr}>
                 <td>
                   <span className={styles.total}>{order._id}</span>
+                </td>
+                <td>
+                  <span className={styles.total}>{order.ophaalDatum}</span>
                 </td>
                 <td>
                   <span className={styles.total}>{order.customer}</span>
@@ -59,7 +64,7 @@ const Order = ({ order }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(`https://www.broodjesvelje.be/api/orders/${params.id}`);
+  const res = await axios.get(`http://localhost:3000/api/orders/${params.id}`);
   return {
     props: {
       order: res.data

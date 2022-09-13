@@ -18,14 +18,14 @@
 
 .categorie {
   margin-bottom: 20px;
-  color: #B68D40;
+  color: #b68d40;
   font-weight: bold;
 }
 
 .button {
   height: 30px;
   margin-left: 10px;
-  background-color: #B68D40;
+  background-color: #b68d40;
   color: white;
   font-size: large;
   border: none;
@@ -63,7 +63,7 @@
   margin-right: auto;
   background-color: #222;
   color: white;
-  border: #B68D40 1px dashed;
+  border: #b68d40 1px dashed;
   width: 80%;
   height: 100%;
 }
@@ -79,6 +79,21 @@
 @media screen and (max-width: 480px) {
   .title {
     text-align: center;
+  }
+
+  .container2 {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    color: white;
+    border: #b68d40 1px dashed;
+    width: 100%;
+    height: 100%;
+  }
+
+  .container1{
+    display: flex;
+    flex-direction: column;
   }
 
 }

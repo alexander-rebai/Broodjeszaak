@@ -14,6 +14,10 @@
     overflow-y: auto;
 }
 
+.datum {
+    background-color: #B68D40;
+}
+
 .innerPopup {
     position: absolute;
     top: 100px;

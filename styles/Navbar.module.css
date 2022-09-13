@@ -70,12 +70,25 @@
 }
 
 @media screen and (max-width:480px) {
-  .item:nth-child(2) {
-    display: none;
+  .container {
+    height: 100px;
+    background-color: red;
+    width: 100%;
+    padding-left: 10px;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 999;
   }
 
-  .item:nth-child(1) {
-    flex: 3;
-  }
+  .cart{
+    position: absolute;
+    cursor: pointer;
+    margin-left: 330px;
+}
+
 
 }

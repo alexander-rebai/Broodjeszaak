@@ -29,13 +29,13 @@ const ContactForm = () => {
       target="_blank"
     >
       <div className={styles.formItem}>
-        <input className={styles.input} type="text" placeholder="Your name" name="name" required />
+        <input className={styles.input} type="text" placeholder="Naam" name="name" required />
       </div>
       <div className={styles.formItem}>
         <input className={styles.input} type="email" placeholder="Email" name="email" required />
       </div>
       <div className={styles.formItem}>
-        <textarea className={styles.area} placeholder="Your message" name="message" required />
+        <textarea className={styles.area} placeholder="Bericht" name="message" required />
       </div>
       <div className={styles.formItem}>
         <button className={styles.formButton} type="submit">Verstuur</button>

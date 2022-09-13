@@ -35,6 +35,10 @@ const OrderSchema = new mongoose.Schema({
     comment: {
         type: String,
         required: false,
+    },
+    ophaalDatum : {
+        type: String,
+        required : true,
     }
 }, { timestamps: true });
 

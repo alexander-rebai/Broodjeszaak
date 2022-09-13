@@ -10,7 +10,7 @@ import CartItem from "../components/CartItem";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [cash, setCash] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -21,8 +21,10 @@ const Cart = () => {
     if (p.title === "Salad") {
       return p.title
     }
-    return cart.quantities[i] + "x" + cart.types[i] + ": " + p.title;
+    return cart.quantities[i] + "x" + cart.types[i] + ": " + p.title + `${p.broodjesType ? " -> " + p.broodjesType : ""}`;
   })
+
+  console.log(items)
 
   const handleAfronden = () => {
     const today = new Date();
@@ -41,7 +43,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post("https://www.broodjesvelje.be/api/orders", data);
+      const res = await axios.post("http://localhost:3000/api/orders", data);
       if (res.status === 201) {
         dispatch(reset());
         router.push(`/orders/${res.data._id}`);
@@ -65,6 +67,7 @@ const Cart = () => {
           </tbody>
           <tbody>
             {cart.products.map((product, i) => {
+               console.log({"item" : product})
               return (
                 <CartItem key={i} product={product}/>
               )

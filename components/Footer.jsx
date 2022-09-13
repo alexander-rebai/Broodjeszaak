@@ -16,9 +16,9 @@ const Footer = () => {
             <br /> velje@outlook.be
             <br /> Btw BE0867121602
             <br />
-            <a href="https://www.facebook.com/velje9420" target="_blank" rel="noreffer"><FaFacebook/></a>
+            <a href="https://www.facebook.com/velje9420" target="_blank" rel="noreferrer"><FaFacebook/></a>
             <br />
-            <a href="https://instagram.com/broodjes.velje?igshid=YmMyMTA2M2Y=" target="_blank" rel="noreffer"><FaInstagram/></a>
+            <a href="https://instagram.com/broodjes.velje?igshid=YmMyMTA2M2Y=" target="_blank" rel="noreferrer"><FaInstagram/></a>
 
           </p>
         </div>

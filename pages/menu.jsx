@@ -60,11 +60,11 @@ const menu = ({
 };
 
 export const getServerSideProps = async () => {
-  const res1 = await axios.get("http://localhost:3000/api/broodjes");
-  const res2 = await axios.get("http://localhost:3000/api/zoetigheden");
-  const res3 = await axios.get("http://localhost:3000/api/snacks");
-  const res4 = await axios.get("http://localhost:3000/api/paninis");
-  const res5 = await axios.get("http://localhost:3000/api/dranken");
+  const res1 = await axios.get("https://www.broodjesvelje.be/api/broodjes");
+  const res2 = await axios.get("https://www.broodjesvelje.be/api/zoetigheden");
+  const res3 = await axios.get("https://www.broodjesvelje.be/api/snacks");
+  const res4 = await axios.get("https://www.broodjesvelje.be/api/paninis");
+  const res5 = await axios.get("https://www.broodjesvelje.be/api/dranken");
   return {
     props: {
       broodjesList: res1.data,

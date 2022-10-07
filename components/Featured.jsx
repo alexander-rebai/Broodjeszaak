@@ -8,14 +8,16 @@ const Featured = () => {
     "/img/foto1.png",
     "/img/foto2.png",
     "/img/foto3.png",
+    "/img/broodmand1.png",
+    "/img/broodmand2.png",
   ];
 
   const handleArrow = (direction) =>{
       if(direction==="l"){
-          setIndex(index !== 0 ? index-1 : 2)
+          setIndex(index !== 0 ? index-1 : 4)
       }
       if(direction==="r"){
-          setIndex(index !== 2 ? index+1 : 0)
+          setIndex(index !== 4 ? index+1 : 0)
       }
   }
 

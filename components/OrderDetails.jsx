@@ -28,7 +28,7 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
             " " +
             date.getDate() +
             "/" +
-            date.getMonth() +
+            (date.getMonth()+1) +
             "/" +
             date.getFullYear();
           dates.push(dateString);
@@ -40,7 +40,7 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
             " " +
             date.getDate() +
             "/" +
-            date.getMonth() +
+            (date.getMonth()+1) +
             "/" +
             date.getFullYear();
           dates.push(dateString);
@@ -52,7 +52,7 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
             " " +
             date.getDate() +
             "/" +
-            date.getMonth() +
+            (date.getMonth()+1) +
             "/" +
             date.getFullYear();
           dates.push(dateString);
@@ -64,7 +64,7 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
             " " +
             date.getDate() +
             "/" +
-            date.getMonth() +
+            (date.getMonth()+1) +
             "/" +
             date.getFullYear();
           dates.push(dateString);
@@ -76,7 +76,7 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
             " " +
             date.getDate() +
             "/" +
-            date.getMonth() +
+            (date.getMonth()+1) +
             "/" +
             date.getFullYear();
           dates.push(dateString);
@@ -85,7 +85,6 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
           break;
       }
     }
-    console.log(dates);
     setData(dates);
   };
 
@@ -95,7 +94,6 @@ const OrderDetails = ({ total, createOrder, products, saladItems }) => {
 
   const handleClick = () => {
     const ophaalDatum = document.getElementById("dates").value;
-    console.log(ophaalDatum);
     createOrder({
       customer,
       phone,

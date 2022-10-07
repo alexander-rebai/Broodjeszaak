@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/PizzaList.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addSalad } from "../redux/cartSlice";
 
@@ -33,9 +33,9 @@ const Saladbar = () => {
     "tofu",
     "hesp",
     "tonijnsla (+ €1)",
-    "krabsla",
-    "geitenkaas",
-    "mozzarella",
+    "krabsla (+ €1)",
+    "geitenkaas (+ €1)",
+    "mozzarella (+ €1)",
     "gerookte zalm (+ €3)",
   ];
   const afwerking = [
@@ -81,7 +81,12 @@ const Saladbar = () => {
     setShowSalad(false);
   };
 
-  const calculatePrice = () => {
+  //rerender every time calculeted price changes
+  useEffect(() => {
+    calculatePrice();
+  }, [salad.basis, salad.groente, salad.proteine, salad.afwerking, salad.dressing]);
+
+  const openSalad = () => {
     if (
       !basisList.length ||
       !groenteList.length ||
@@ -92,24 +97,35 @@ const Saladbar = () => {
       alert("Je moet minstens 1 ingredient in elke categorie selecteren");
     } else {
       setShowSalad(true);
-      let price = 9;
-      if (proteineList.includes("gerookte zalm (+ €3)")) {
-        price += 3;
-      } else if (proteineList.includes("tonijnsla (+ €1)")) {
-        price += 1;
-      }
-      setSalad({
-        ...salad,
-        basis: basisList,
-        groente: groenteList,
-        proteine: proteineList,
-        afwerking: afwerkingList,
-        dressing: dressingList,
-        price: price,
-      });
-      return price;
     }
+    calculatePrice();
   };
+
+  const calculatePrice = () => {
+    let price = 9;
+    if (proteineList.includes("gerookte zalm (+ €3)")) {
+      price += 3;
+    } else if (proteineList.includes("tonijnsla (+ €1)")) {
+      price += 1;
+    } else if (proteineList.includes("krabsla (+ €1)")) {
+      price += 1;
+    }else if (proteineList.includes("geitenkaas (+ €1)")) {
+      price += 1;
+    }else if (proteineList.includes("mozzarella (+ €1)")) {
+      price += 1;
+    }
+    setSalad({
+      ...salad,
+      basis: basisList,
+      groente: groenteList,
+      proteine: proteineList,
+      afwerking: afwerkingList,
+      dressing: dressingList,
+      price: price,
+    });
+    console.log(price);
+  };
+
   const handleChangeBasis = (e, item) => {
     const checked = e.target.checked;
 
@@ -123,6 +139,7 @@ const Saladbar = () => {
     } else {
       setBasisList(basisList.filter((o) => o !== item));
     }
+    calculatePrice();
   };
   const handleChangeGroente = (e, item) => {
     const checked = e.target.checked;
@@ -137,6 +154,7 @@ const Saladbar = () => {
     } else {
       setGroenteList(groenteList.filter((o) => o !== item));
     }
+    calculatePrice();
   };
   const handleChangeProt = (e, item) => {
     const checked = e.target.checked;
@@ -151,6 +169,7 @@ const Saladbar = () => {
     } else {
       setProteineList(proteineList.filter((o) => o !== item));
     }
+    calculatePrice();
   };
   const handleChangeAfwerking = (e, item) => {
     const checked = e.target.checked;
@@ -165,6 +184,7 @@ const Saladbar = () => {
     } else {
       setAfwerkingList(afwerkingList.filter((o) => o !== item));
     }
+    calculatePrice();
   };
   const handleChangeDressing = (e, item) => {
     const checked = e.target.checked;
@@ -179,6 +199,7 @@ const Saladbar = () => {
     } else {
       setDressingList(dressingList.filter((o) => o !== item));
     }
+    calculatePrice();
   };
 
   return (
@@ -275,7 +296,7 @@ const Saladbar = () => {
           <button
             className={styles.button}
             onClick={() => {
-              calculatePrice();
+              openSalad();
             }}
           >
             Bouw mijn Salade

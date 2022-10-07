@@ -24,8 +24,6 @@ const Cart = () => {
     return cart.quantities[i] + "x" + cart.types[i] + ": " + p.title + `${p.broodjesType ? " -> " + p.broodjesType : ""}`;
   })
 
-  console.log(items)
-
   const handleAfronden = () => {
     const today = new Date();
     if (today.getHours() > 10 || today.getDate() === 7 || today.getDate() === 1) {
@@ -67,7 +65,6 @@ const Cart = () => {
           </tbody>
           <tbody>
             {cart.products.map((product, i) => {
-               console.log({"item" : product})
               return (
                 <CartItem key={i} product={product}/>
               )

@@ -41,6 +41,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
+      console.log(data)
       const res = await axios.post("https://www.broodjesvelje.be/api/orders", data);
       if (res.status === 201) {
         dispatch(reset());

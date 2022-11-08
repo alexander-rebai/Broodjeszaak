@@ -74,11 +74,33 @@ const cartSlice = createSlice({
     addProduct: (state, action) => {
       let temp = null;
       let extraKostBroodje;
+      
+      //broodjestype
+      if (action.payload.type === "broodje") {
+        if (action.payload.broodjesType === "bruin (+€0.50)") {
+          extraKostBroodje = 0.5;
+          action.payload._id = action.payload._id + 1;
+        } else if (action.payload.broodjesType === "ciabatta (+€0.60)") {
+          extraKostBroodje = 0.6;
+          action.payload._id = action.payload._id + 2;
+        } else {
+          extraKostBroodje = 0;
+        }
+      }
+      if (action.payload.type === "broodje") {
+        state.total +=
+          action.payload.price * action.payload.quantity +
+          extraKostBroodje * action.payload.quantity;
+      } else {
+        state.total += action.payload.price * action.payload.quantity;
+      }
+
       state.products?.map((item) => {
         if (item._id === action.payload._id) {
           temp = item;
         }
       });
+      
       if (temp != null) {
         state.quantities[state.products.indexOf(temp)] += parseInt(
           action.payload.quantity
@@ -92,22 +114,7 @@ const cartSlice = createSlice({
           action.payload.quantity
         );
       }
-      if (action.payload.type === "broodje") {
-        if (action.payload.broodjesType === "bruin (+€0.50)") {
-          extraKostBroodje = 0.5;
-        } else if (action.payload.broodjesType === "ciabatta (+€0.60)") {
-          extraKostBroodje = 0.6;
-        } else {
-          extraKostBroodje = 0;
-        }
-      }
-      if (action.payload.type === "broodje") {
-        state.total +=
-          action.payload.price * action.payload.quantity +
-          extraKostBroodje * action.payload.quantity;
-      } else {
-        state.total += action.payload.price * action.payload.quantity;
-      }
+
       state.types[state.products.indexOf(action.payload)] = action.payload.type;
     },
     removeProduct: (state, action) => {

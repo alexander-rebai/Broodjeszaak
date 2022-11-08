@@ -10,7 +10,7 @@ const BroodjeCard = ({ broodje }) => {
     const type = "broodje";
     const dispatch = useDispatch();
 
-    const broodjesTypes = ["bruin (+€0.50)", "ciabatta (+€0.60)"]
+    const broodjesTypes = ["wit", "bruin (+€0.50)", "ciabatta (+€0.60)"]
 
     const handleClick = () => {
         if (quantity > 0) {

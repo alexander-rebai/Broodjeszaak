@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/about": "pages/about.js",
-  "/menu": "pages/menu.js"
+  "/menu": "pages/menu.js",
+  "/administratie_velje": "pages/administratie_velje.js",
+  "/cart": "pages/cart.js"
 }

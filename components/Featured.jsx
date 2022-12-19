@@ -4,20 +4,22 @@ import { useState } from "react";
 
 const Featured = () => {
   const [index, setIndex] = useState(0);
+  //when adding image, increase index in handleArrow, and go in css and increase width of wrapper
   const images = [
     "/img/foto1.png",
     "/img/foto2.png",
     "/img/foto3.png",
     "/img/broodmand1.png",
     "/img/broodmand2.png",
+    "/img/verlof.jpg"
   ];
 
   const handleArrow = (direction) =>{
       if(direction==="l"){
-          setIndex(index !== 0 ? index-1 : 4)
+          setIndex(index !== 0 ? index-1 : 5)
       }
       if(direction==="r"){
-          setIndex(index !== 4 ? index+1 : 0)
+          setIndex(index !== 5 ? index+1 : 0)
       }
   }
 

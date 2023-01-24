@@ -30,7 +30,6 @@ const Saladbar = () => {
     "feta",
     "kipfilet",
     "tonijn",
-    "tofu",
     "hesp",
     "tonijnsla (+ €1)",
     "krabsla (+ €1)",

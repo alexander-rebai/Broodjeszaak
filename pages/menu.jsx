@@ -26,7 +26,7 @@ const menu = ({
           <Image src="/img/telephone.png" alt="" width="32" height="32" />
         </div>
         <div className={styles.texts}>
-          <div className={styles.text}>BESTEL TELEFONISCH!</div>
+          <div className={styles.text}>telefonisch bestellen kan tot 10.30 u. Besteld vóór 10u, geleverd voor 11.30u (enkel voor scholen en bedrijven)</div>
           <div className={styles.text}>053 / 41 88 51</div>
           <div className={styles.text}>0495 / 43 44 58</div>
         </div>

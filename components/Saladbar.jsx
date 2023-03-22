@@ -25,6 +25,7 @@ const Saladbar = () => {
     "tomaat",
     "tuinkers",
     "perzik",
+    "ei",
   ];
   const proteine = [
     "feta",
@@ -46,6 +47,8 @@ const Saladbar = () => {
     "olijven",
     "verse ui",
     "zongedroogde tomaat",
+    "zilveruitjes",
+    "augurken",
   ];
   const dressing = [
     "mayonaise",

@@ -17,10 +17,10 @@
 }
 
 .wrapper {
-  width: 500vw;
+  width: 600vw;
   height: 100%;
   display: flex;
-  transition: all 1.5s ease-in-out ;
+  transition: all 1.5s ease-in-out;
 }
 
 .imgContainer {
@@ -30,7 +30,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .container{
+  .container {
     height: 50vh;
     width: 100%;
   }

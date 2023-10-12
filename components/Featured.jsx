@@ -10,15 +10,16 @@ const Featured = () => {
     "/img/foto2.png",
     "/img/saladbar.png",
     "/img/saladbar2.png",
-    "/img/broodmanden.jpg"
+    "/img/broodmanden.jpg",
+    "/img/pastabar.png"
   ];
 
   const handleArrow = (direction) =>{
       if(direction==="l"){
-          setIndex(index !== 0 ? index-1 : 4)
+          setIndex(index !== 0 ? index-1 : 5)
       }
       if(direction==="r"){
-          setIndex(index !== 4 ? index+1 : 0)
+          setIndex(index !== 5 ? index+1 : 0)
       }
   }
 

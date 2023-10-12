@@ -19,7 +19,6 @@ const Footer = () => {
             <a href="https://www.facebook.com/velje9420" target="_blank" rel="noreferrer"><FaFacebook/></a>
             <br />
             <a href="https://instagram.com/broodjes.velje?igshid=YmMyMTA2M2Y=" target="_blank" rel="noreferrer"><FaInstagram/></a>
-
           </p>
         </div>
         <div className={styles.card}>

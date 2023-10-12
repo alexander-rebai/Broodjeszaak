@@ -1,5 +1,5 @@
 .container {
-  height: calc(100vh - 100px);
+  height: 100%;
   background-color: #222;
   display: flex;
   overflow: hidden;
@@ -24,7 +24,7 @@
 
 .title {
   font-size: 18px;
-  color: #D6AD60;
+  color: #d6ad60;
 }
 
 .text {

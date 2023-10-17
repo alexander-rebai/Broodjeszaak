@@ -11,7 +11,6 @@ const Footer = () => {
           <p className={styles.text}>
             Gentsesteenweg 334
             <br /> 9420 Erondegem
-            <br /> 053 / 41 88 51
             <br /> 0495 / 43 44 58
             <br /> velje@outlook.be
             <br /> Btw BE0867121602
@@ -25,7 +24,7 @@ const Footer = () => {
           <h1 className={styles.title}>OPENINGSUREN</h1>
           <p className={styles.text}>
             DINSDAG TOT VRIJDAG
-            <br /> 08:00 – 14:30
+            <br /> 06:30 – 14:30
           </p>
           <p className={styles.text}>
             ZATERDAG

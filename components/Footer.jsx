@@ -1,6 +1,5 @@
-import Image from "next/image";
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import styles from "../styles/Footer.module.css";
-import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -24,7 +23,7 @@ const Footer = () => {
           <h1 className={styles.title}>OPENINGSUREN</h1>
           <p className={styles.text}>
             DINSDAG TOT VRIJDAG
-            <br /> 06:30 – 14:30
+            <br /> 07:00 – 14:30
           </p>
           <p className={styles.text}>
             ZATERDAG
